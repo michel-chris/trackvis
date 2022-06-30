@@ -10,7 +10,7 @@ Use polyline if:
 adapt color, weight (line thickness) and opacity to your liking (in functions.py)
 suggestion: weight = 2.5, opacity = 0.2
 
-![Example Lines](https://github.com/michel-chris/trackvis/blob/master/exampleLines.jpg?raw=true)
+![Example Lines](https://github.com/michel-chris/trackvis/blob/master/exampleLines.jpg)
 
 ## Plot tracks/points as a heatmap
 Use heatmap if:
@@ -22,4 +22,4 @@ Use heatmap if:
 adapt radius and blur to your liking (in functions.py)
 suggestion: radius = 2, blur = 3
 
-![Example Heat](https://github.com/michel-chris/trackvis/blob/master/exampleHeat.jpg?raw=true)
+![Example Heat](https://github.com/michel-chris/trackvis/blob/master/exampleHeat.jpg)

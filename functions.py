@@ -14,13 +14,19 @@ def downloadExample(outputPath):
     if outputPath[-1] != '/':
         outputPath = outputPath + '/'
 
+    if not os.path.isdir(outputPath):
+        os.mkdir(outputPath)
+
     print('Downloading...')
 
     with open('datalinks.txt') as file:
         for i, line in enumerate(file):
             url = line.rstrip()
-            req = requests.get(url)
-            open(outputPath + 'track' + str(i) + '.gpx', 'w').write(req.text)
+
+            # download file if it does not exist
+            if not os.path.isfile(outputPath + 'track' + str(i) + '.gpx'):
+                req = requests.get(url)
+                open(outputPath + 'track' + str(i) + '.gpx', 'w').write(req.text)
 
             sys.stdout.write("%d..." % i) # update progress bar
             sys.stdout.flush()

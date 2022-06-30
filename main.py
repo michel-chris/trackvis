@@ -15,12 +15,8 @@ TODO:
 - only download example files on first run
 - add other colormaps
 - add configuration file (yaml??)
-- add zoom_start option (any way to programmetically calculate an appropriate value?)
+- add zoom_start option (any way to programmatically calculate an appropriate value?)
 '''
-
-
-# quick start guide for folium maps:
-# https://python-visualization.github.io/folium/quickstart.html
 
 # set data path with gpx files
 dataPath = os.path.abspath('gpx')
@@ -28,12 +24,12 @@ dataPath = os.path.abspath('gpx')
 # download example gpx files from Openstreetmap
 downloadExample(dataPath)
 
-# folder path with all gpx tracks
+# file list of all gpx tracks
 fileList = [os.path.join(dataPath, f) for f in os.listdir(dataPath)]
 
 # read all tracks and append to one variable
-# tracks[i][j][0] == i-th track, j-th point, latitude
-# tracks[i][j][1] == i-th track, j-th point, longitude
+# - tracks[i][j][0] == i-th track, j-th point, latitude
+# - tracks[i][j][1] == i-th track, j-th point, longitude
 tracks = readGPX(fileList)
 
 
@@ -41,10 +37,11 @@ tracks = readGPX(fileList)
 # - you have a low number of gnss points per distance
 # - you need a more responsive map since you have a large number of tracks
 #
-# adapt color, weight (line thickness) and opacity to your liking
-# (I suggest weight = 2.5, opacity = 0.2)
+# adapt color, weight (line thickness) and opacity to your liking (in functions.py)
+# suggestion: weight = 2.5, opacity = 0.2
 
-plotMap(tracks, vectorType = 'polyline', tiles = 'Stamen Terrain', outputFile = dataPath + '/exampleLines.html')
+plotMap(tracks, vectorType = 'polyline', tiles = 'Stamen Terrain', 
+    outputFile = 'example/exampleLines.html', opacity = 0.4)
 
 
 # Use heatmap if:
@@ -55,7 +52,8 @@ plotMap(tracks, vectorType = 'polyline', tiles = 'Stamen Terrain', outputFile = 
 # - you don't care about unresponsive maps or have a powerful pc
 #   (in the case of a large number of tracks)
 #
-# adapt radius and blur to your liking (I suggest radius = 2, blur = 3)
+# adapt radius and blur to your liking (in functions.py)
+# suggestion: radius = 2, blur = 3
 
-plotMap(tracks, vectorType = 'heatmap', tiles = 'Stamen Terrain', outputFile = dataPath + '/exampleHeat.html')
+plotMap(tracks, vectorType = 'heatmap', tiles = 'Stamen Terrain', outputFile = 'example/exampleHeat.html')
 
